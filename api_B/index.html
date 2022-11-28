@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch JSON from API...</title>
+</head>
+<body>
+
+  <h1>Recipe serch</h1>
+
+  <p>
+    name: <span id="name"></span><br />
+    ingredientLines: <span id="ing"></span>
+  </p>
+        
+  <script>
+      const api_url = '../recipes.json'
+      async function getData() {
+          const response = await fetch(api_url);
+          const data = await response.json();
+          
+            //const { lab, img} = data;
+          const name = data[0].hits[0].recipe.label;
+         
+          //const ing = data[0].hits[0].recipe.ingredientLines;
+            
+            //console.log(data[0].hits[0].recipe.label);
+            //console.log(data[0].hits[0].recipe.ingredientLines);
+          //const { name, ing } = data;
+          //if (name == "cake")
+          console.log(name);
+          //console.log(ing);
+
+          //document.getElementById('name').textContent = name;
+          //document.getElementById('ing').textContent = ing;
+            //console.log(data[0].hits[0].recipe.image);
+            //console.log(data[0].hits[0].recipe.url);
+            //console.log(data[0].hits[0].recipe.healthLabels);
+
+          }
+
+            //document.getElementById('label').textContent = label;
+            //document.getElementById('ing').textContent = ingredientLins;
+         
+     getData()
+    </script>
+</body>
+</html>
