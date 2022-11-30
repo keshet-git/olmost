@@ -1,0 +1,13 @@
+#box.a{
+    border: 4px solid;
+    width: 650px;
+    height: 500px;
+    font-size: 14px;
+    text-align: center;
+    background: lightgreen;
+
+    transform: translateX(50px);
+    transform: translateY(50px);
+    transform: translate(50px, 50px);
+    ;
+}

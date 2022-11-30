@@ -5,32 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fetch JSON from API...</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <h1>Recipe serch</h1>
-
-  <p>
-    name: <span id="name"></span><br />
-    ingredientLines: <span id="ing"></span>
-  </p>
+<div id="box.a">
+  <p>name: <span id="name"></span><br /></p>
+  <p>:<span id="ing"></span></p>
+</div>
         
   <script>
       const api_url = '../recipes.json'
-      async function getData() {
+
+      async function getNans() {
           const response = await fetch(api_url);
           const data = await response.json();
+          //console.log(data[0].hits);
+          const kitchens = (data[0].hits);
+          const labels = kitchens.map(kitchen => kitchen.recipe);
+          const name = labels.map(label => label.label)
+          console.log(name);
           
             //const { lab, img} = data;
-          const name = data[0].hits[0].recipe.label;
-         
+          //const name = data[0].hits[0];
           //const ing = data[0].hits[0].recipe.ingredientLines;
-            
-            //console.log(data[0].hits[0].recipe.label);
-            //console.log(data[0].hits[0].recipe.ingredientLines);
+          
+          
+          //console.log(data[0].hits[0].recipe.ingredientLines);
           //const { name, ing } = data;
           //if (name == "cake")
-          console.log(name);
+          //console.log(name);
           //console.log(ing);
 
           //document.getElementById('name').textContent = name;
@@ -44,7 +49,7 @@
             //document.getElementById('label').textContent = label;
             //document.getElementById('ing').textContent = ingredientLins;
          
-     getData()
+     getNans()
     </script>
 </body>
 </html>
