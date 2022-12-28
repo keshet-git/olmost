@@ -1,0 +1,53 @@
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fetch JSON from API...</title>
+</head>
+<body>
+
+<h1>Recipe serch</h1>
+
+<p>
+name: <span id="name"></span><br />
+:<span id="ing"></span>
+</p>
+
+<script>
+  const api_url = '../index.json'
+  async function getData() {
+      const response = await fetch(api_url);
+      const data = await response.json();
+
+        //const { lab, img} = data;
+      
+      //const hits = data.map((data) => data.hits);
+      //const recipes = hits.map((hits) => hits.recipes);
+      const kitchens = data[0].hits;
+      
+      const names = kitchens.map((kitchen) => kitchen.recipe);
+      const recipes = names.map((name) => name.label);
+      const ing = names.map((name) => name.ingredientLines);
+
+      
+      console.log(recipes);
+      console.log(ing);
+      //==========
+      //console.log(hits);
+
+      //const ing = data[0].hits[0].recipe.ingredientLines;#
+      //console.log(data[0].hits[0])
+        
+        //console.log(data[0].hits[0].recipe.label);
+        //console.log(data[0].hits[0].recipe.ingredientLines);
+      //const { name, ing } = data;
+      //if (name == "cake")
+      
+      //console.log(ing);
+  }
+      //document.getElementById('name').textContent = name;
+        //document.getElementById('label').textContent = label;
+        //document.getElementById('ing').textContent = ingredientLins;
+
+ getData()
+</script>
+</body>
+</html>
